@@ -1,0 +1,15 @@
+GET http://localhost:3333/
+
+###
+
+POST http://localhost:3333/users
+Content-Type: application/json
+
+{
+    "name": "roblox",
+    "senha": "123",
+    "perfil": "ADM"
+}
+
+###
+DELETE http://localhost:3333/users/1
