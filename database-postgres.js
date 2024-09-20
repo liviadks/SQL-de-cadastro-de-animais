@@ -2,37 +2,38 @@ import { randomUUID } from "crypto";
 import { sql } from './db.js';
 
 export class DatabasePostgres { 
-  async listUsers() {
-    const users = await sql`select * from users`;
-    return users;
+  async listAnimals() {
+    const animals = await sql`select * from animais`;
+    return animals;
   }
 
-  async createUser(user) {
+  async createAnimal(animal) {
     const id = randomUUID();
     console.log('id', id);
-    const name = user.name;
-    const password = user.password;
-    const profile = user.profile;
+    const name = animal.name;
+    const raça = animal.raça;
+    const idade = animal.idade;
+    const tutor = animal.tutor;
     
-    await sql`insert into users (id, name, password, profile)
-    values (${id}, ${name}, ${password}, ${profile})`
+    await sql`insert into animais (id, name, raça, idade, tutor)
+    values (${id}, ${name}, ${raça}, ${idade}, ${tutor})`;
   }
 
-  async updateUser(id, user) {
-    const name = user.name;
-    const password = user.password;
-    const profile = user.profile;
+  async updateAnimal(id, animal) {
+    const name = animal.name;
+    const raça = animal.raça;
+    const idade = animal.idade;
+    const tutor = animal.tutor;
 
-    await sql`update users set 
+    await sql`update animais set 
         name = ${name},
-        password = ${password},
-        profile = ${profile}
-        where id = ${id}
-    `;
+        raça = ${raça},
+        idade = ${idade},
+        tutor = ${tutor}
+        where id = ${id}`;
   }
 
-  async deleteUser(id) {
-    await sql`delete from users where id = ${id}`
+  async deleteAnimal(id) {
+    await sql`delete from animais where id = ${id}`;
   }
-
 }

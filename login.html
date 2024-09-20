@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senai Login</title>
+    <style>
+        * {
+            margin: 0;
+        }
+        .center-page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+            background-color: #1e2b38;
+            color: #fff;
+        }
+
+        input {
+            background-color: #17212B;
+            border: 1px solid #1e2b38;
+            color: #fff;
+            padding: 7px;
+            border-radius: 5px;
+        }
+
+        button {
+            background-color: #fff;
+            padding: 7px;
+            border-radius: 50px;
+            color: #000;
+            border: 1px solid #444;
+            width: 100px;
+            cursor: pointer;
+        }
+
+        .btn-transparent {
+          background-color: #ffffff00; 
+          color: #FFF; 
+          border: none;
+          font-weight: 600;
+        }
+        .center {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .containter-betwen {
+          display: flex;
+          align-items: flex-end;
+          height: 80px;
+          margin-bottom: 40px;
+          justify-content: space-between;
+          padding: 10px 0px;
+          border-bottom: 1px solid #fff;
+        }
+    </style>
+</head>
+<body class="center-page">
+    <div>
+        <div class="containter-betwen">
+          <h1>Login</h1>
+          <button class="btn-transparent" onclick="irParaCadastro()">
+            Cadastrar
+          </button>
+        </div>
+        
+        <input type="text" id="name" title="Nome do Usuário" placeholder="Nome do Usuário">
+        <input type="password" id="password" title="Senha" placeholder="Senha">
+        <button onclick="login()">
+            Entrar
+        </button>
+
+    </div>
+
+    <script>
+        function irParaCadastro() {
+          document.location.href = './cadastro.html'
+        }
+
+        function login() {
+            const name = document.getElementById('name').value;
+            const password = document.getElementById('password').value;
+
+// EXERCICIO verificar se o usuário digitou o nome e a senha antes de buscar o login do localStorage
+
+            const obj = {
+                name: name,
+                password: password
+            };
+
+            const login = JSON.parse(localStorage.getItem('login'));
+
+            if (obj.name === login.name && obj.password === login.password) {
+
+// EXERCICIO redirecionar o usuário para a tela de bem vindo 
+
+              alert('Pode Entrar');
+            } else {
+              alert('Usuário ou senha inválidos');
+            }
+
+        }
+    </script>
+</body>
+</html>

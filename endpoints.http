@@ -1,30 +1,32 @@
-#PARA UTILIZAR ESSES ENDPOINTS É NECESSÁRIO INSTALAR A EXTENSÃO DO VSCODE "REST CLIENT"
+# PARA UTILIZAR ESSES ENDPOINTS É NECESSÁRIO INSTALAR A EXTENSÃO DO VSCODE "REST CLIENT"
 ###
 
-GET http://localhost:3333/users
+GET http://localhost:3333/animals
 
 ###
 
-POST http://localhost:3333/users
+POST http://localhost:3333/animals
 Content-Type: application/json
 
 {
-    "name": "ORELHA",
-    "password": "12345",
-    "profile": "COMUM"
+    "name": "Sansão",
+    "raça": "Border Collie",
+    "idade": "5",
+    "tutor": "Lara"
 }
 
 ###
 
-PUT http://localhost:3333/users/id
+PUT http://localhost:3333/animals/{id}
 Content-Type: application/json
 
 {
-    "name": "ORELHA",
-    "password": "123",
-    "profile": "ADM"
+    "name": "Sansão Atualizado",
+    "raça": "SRD",
+    "idade": "4",
+    "tutor": "Titicia"
 }
 
 ###
 
-DELETE http://localhost:3333/users/id
+DELETE http://localhost:3333/animals/{id}
